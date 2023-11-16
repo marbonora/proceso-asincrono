@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+  server:
+    image: server-server:1.0.0
+    restart: always
+    build: .
+    ports:
+      - 4000:9000
+    volumes:
+      - ./data/logs:/app/server/logs
+      - .:/app/server
+    environment:
+      - "INDEX_HOST=index"
+      - "INDEX_PORT=9200"
+      - "PROCESS_SELECT=10"
+
+  redis: 
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes: 
+    - ./data/redis:/root/redis
+    - ./data/redis/redis.conf:/usr/local/etc/redis/redis.conf
