@@ -1,11 +1,13 @@
 # Celery
 ## Llamada POST para empezar el proceso
 ### `POST /async_process/start`
+Un ejemplo de respuesta sería: 
 ```json
 {
     "result_id": "0d51651c-2e0a-4104-ab37-c69814b43e50"
 }
 ```
+Nos guardamos el id para obtener el resultado del proceso, cuando esté disponible. 
 
 ## Llamada GET para obtener el resultado
 ### `GET /async_process/<result_id>` 
