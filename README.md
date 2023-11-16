@@ -1,4 +1,4 @@
-# Celery
+# Proceso asíncrono utilizando Celery
 ## Llamada POST para empezar el proceso
 ### `POST /async_process/start`
 Un ejemplo de respuesta sería: 
