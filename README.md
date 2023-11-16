@@ -65,31 +65,31 @@ src/redis-server
 
 ### [docker/supervisord.conf](server/docker/supervisord.conf)
 Llamar al worker de celery, que se inicia en [server.py](server/server.py)
-´´´
+```
 [program:async_process]
 command=/bin/sh -c "sleep 5 && cd /app/server && celery -A server.celery worker --loglevel=INFO -P gevent"
 autorestart=true
 startretries=10
-´´´
+```
 ### [server.py](server/server.py)
 Inicializar Celery dentro del objeto Flask app. 
-´´´
+```
 app = Flask(__name__)
 app.config['CELERY_BROKER_URL'] = 'redis://redis:6379/0'
 app.config['CELERY_RESULT_BACKEND'] = 'redis://redis:6379/0'
 
 celery = Celery(app.name, broker = app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
-´´´
+```
 
 Se configuran los endpoints para iniciar el proceso asíncrono y para obtener el resultado. 
-´´´
+```
 @app.route('/async_process/start', methods=['POST'])
 @app.route('/async_process/<process_id>', methods=['GET'])
-´´´
+```
 
 ### [async_process.py](server/async_process.py)
 Se declara el método al que queremos llamar de forma asíncrona, con la etiqueta "shared_task"
-´´´
+```
 @shared_task(ignore_result = False)
-´´´
+```
