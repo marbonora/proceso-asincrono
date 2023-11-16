@@ -27,3 +27,6 @@ Si ya está disponible, el tendremos el resultado en el campo "value":
     "value": "este es el resultado esperado"
 }
 ```
+
+## Requisitos
+### [a relative link](server/docker-compose.yml)
