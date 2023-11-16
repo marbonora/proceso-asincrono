@@ -9,16 +9,10 @@ RUN pip install flask
 RUN pip install regex
 RUN pip install scikit-learn==1.0.2
 RUN pip install superlance
-RUN pip install pyyaml
 RUN pip install requests
-RUN pip install pandas
-RUN pip install numpy
-RUN pip install openpyxl
-RUN pip install datetime
 RUN pip install gevent==22.10.2
 RUN pip install celery
 RUN pip install redis==3.4.1
-RUN pip install nltk
 
 COPY docker /app/docker
 COPY . /app/server
