@@ -73,13 +73,11 @@ startretries=10
 ´´´
 ### [server.py](server/server.py)
 Inicializar Celery dentro del objeto Flask app. 
-´´´python
-# Flask app starts
+´´´
 app = Flask(__name__)
-# Celery configuration
 app.config['CELERY_BROKER_URL'] = 'redis://redis:6379/0'
 app.config['CELERY_RESULT_BACKEND'] = 'redis://redis:6379/0'
-# Init Celery
+
 celery = Celery(app.name, broker = app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 ´´´
