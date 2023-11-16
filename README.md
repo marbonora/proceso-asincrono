@@ -63,7 +63,7 @@ make
 src/redis-server
 ```
 
-### [docker/supervisor.conf](server/docker/supervisor.conf)
+### [docker/supervisord.conf](server/docker/supervisord.conf)
 Llamar al worker de celery, que se inicia en [server.py](server/server.py)
 ´´´
 [program:async_process]
@@ -73,7 +73,7 @@ startretries=10
 ´´´
 ### [server.py](server/server.py)
 Inicializar Celery dentro del objeto Flask app. 
-´´´
+´´´python
 # Flask app starts
 app = Flask(__name__)
 # Celery configuration
